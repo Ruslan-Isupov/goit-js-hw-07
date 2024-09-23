@@ -14,17 +14,21 @@ const size = {
 };
 
 const createBoxes = amount => {
+  boxes.innerHTML = '';
+  size.width = 20;
+  size.height = 20;
+  let creation = '';
   if (amount > 0 && amount <= 100) {
     for (let i = 0; i < amount; i += 1) {
       size.width += 10;
       size.height += 10;
-      const creation = `<div  style = " width:${size.width}px; height :${
+      creation += `<div  style = " width:${size.width}px; height :${
         size.height
       }px; background-color:${getRandomHexColor()}"> </div> `;
-      boxes.insertAdjacentHTML('beforeend', creation);
     }
   }
   inputAmount.value = '';
+  boxes.insertAdjacentHTML('beforeend', creation);
 };
 btnCreate.addEventListener('click', e => {
   const amount = inputAmount.value;
